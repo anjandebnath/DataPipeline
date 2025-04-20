@@ -15,6 +15,11 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/jammy64"
   config.vm.box_version = "20241002.0.0"
 
+  
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "8192"  # Set to 8 GB (8192 MB)
+    vb.cpus = 2         # Optional: Adjust CPUs if needed
+  end
 
   config.vm.synced_folder "D:/data", "/home/vagrant/data", 
     type: "virtualbox",
@@ -24,7 +29,8 @@ Vagrant.configure("2") do |config|
     mount_options: ["dmode=775,fmode=664"]
 
   # Forward ports for all services
-  config.vm.network "forwarded_port", guest: 8080, host: 8080   # NiFi
+  config.vm.network "forwarded_port", guest: 8080, host: 8080   # NiFi http
+  config.vm.network "forwarded_port", guest: 8443, host: 8443   # NiFi https
   config.vm.network "forwarded_port", guest: 8081, host: 8081   # Airflow
   config.vm.network "forwarded_port", guest: 5601, host: 5601   # Kibana
   config.vm.network "forwarded_port", guest: 9200, host: 9200   # Elasticsearch
@@ -32,7 +38,7 @@ Vagrant.configure("2") do |config|
   
 
   config.vm.provision "shell", path: "./script/provision-dev-vm.sh"
-  config.vm.provision "shell", path: "./script/mount_shared_folder.sh"
+  #config.vm.provision "shell", path: "./script/mount_shared_folder.sh"
 
 
   # Disable automatic box update checking. If you disable this, then
