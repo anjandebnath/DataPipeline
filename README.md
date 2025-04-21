@@ -22,7 +22,7 @@ Under this repo, there will be an ELT pattern with AWS Redshift, Terraform to cr
 
     Apache NiFi: https://localhost:8443/nifi/
 
-    Apache Airflow: http://localhost:8081
+    Apache Airflow: http://localhost:8080/health
 
     Kibana: http://localhost:5601
 
@@ -64,3 +64,9 @@ https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsea
 1. https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
 2. https://airflow.atwish.org/installation/docker/
 3. https://www.youtube.com/watch?v=AQuYwu2WolQ
+
+/home/vagrant/data/airflow/docker# docker compose up airflow-init
+if successfull everything
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
