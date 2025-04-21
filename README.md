@@ -50,10 +50,19 @@ https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Ho
 ### install Apache Nifi Docker
 1. https://hub.docker.com/r/apache/nifi
   ![alt text](image.png)
+   
+   `docker run --name nifi \
+  -p 8443:8443 \
+  -d \
+  apache/nifi:latest`
 
-  docker logs nifi
-  Generated Username [USERNAME]
-  Generated Password [PASSWORD]
+   docker logs nifi and find the 
+
+   `Generated Username [USERNAME]
+   Generated Password [PASSWORD]`
+
+   https://localhost:8443/nifi/
+   
 
 2. https://www.youtube.com/watch?v=2hrUseUfCbc
 
@@ -65,8 +74,10 @@ https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsea
 2. https://airflow.atwish.org/installation/docker/
 3. https://www.youtube.com/watch?v=AQuYwu2WolQ
 
-/home/vagrant/data/airflow/docker# docker compose up airflow-init
-if successfull everything
+`/home/vagrant/data/airflow/docker# docker compose up airflow-init`
+`/home/vagrant/data/airflow/docker#docker compose up`
+
+if successfull everything http://localhost:8080/
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 ![alt text](image-3.png)
