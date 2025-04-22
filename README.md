@@ -34,7 +34,7 @@ Under this repo, there will be an ELT pattern with AWS Redshift, Terraform to cr
     Python 3.10.12   
     
 ### Java version
-https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-do-I-install-Java-on-Ubuntu
+[Ubuntu] https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-do-I-install-Java-on-Ubuntu
 
     sudo apt-get update
     sudo apt install default-jdk
@@ -46,6 +46,11 @@ https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Ho
     echo $JAVA_HOME
 
     openjdk version "11.0.26" 2025-01-21
+
+[Mac] https://www.geeksforgeeks.org/how-to-install-openjdk-in-macos/
+
+    echo $JAVA_HOME
+    /opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
 
 ### install Apache Nifi Docker
 1. https://hub.docker.com/r/apache/nifi
