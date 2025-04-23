@@ -1,0 +1,22 @@
+[project]
+name = "datapipeline"
+version = "0.1.0"
+description = "datapipeline ETL with airflow, nifi, elasticsearch, sprak, kafka"
+authors = [
+    {name = "Anjan Debnath",email = "anjan0151@gmail.com"}
+]
+license = {text = "Apache-2.0"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "faker (>=37.1.0,<38.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+faker = "^37.1.0"
+
