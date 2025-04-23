@@ -31,7 +31,15 @@ Under this repo, there will be an ELT pattern with AWS Redshift, Terraform to cr
 
 ### Python version
     python3 --version
-    Python 3.10.12   
+    Python 3.10.12  
+
+    Poetry to manage packages
+    pip install poetry
+    poetry init  # creates pyproject.toml
+
+    Creating virtualenv datapipeline-DCMZKO1j-py3.10 in /Users/anjandebnath/Library/Caches/pypoetry/virtualenvs
+    poetry run python loadCSV.py
+    
     
 ### Java version
 [Ubuntu] https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-do-I-install-Java-on-Ubuntu
