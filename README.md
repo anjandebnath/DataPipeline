@@ -26,7 +26,7 @@ Under this repo, there will be an ELT pattern with AWS Redshift, Terraform to cr
 
     Kibana: http://localhost:5601
 
-    Elasticsearch: http://localhost:9200
+    Elasticsearch: https://localhost:9200
 
 
 ### Python version
@@ -81,6 +81,37 @@ Under this repo, there will be an ELT pattern with AWS Redshift, Terraform to cr
 
 ### install Elasticsearch Docker Compose 
 https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-docker-compose
+
+##### Elasticsearch
+docker run --name es01 \
+  --net elastic \
+  -p 9200:9200 -p 9300:9300 \
+  -e "discovery.type=single-node" \
+  -e "ES_JAVA_OPTS=-Xms1g -Xmx1g" \
+  --ulimit memlock=-1:-1 \
+  --ulimit nofile=65536:65536 \
+  docker.elastic.co/elasticsearch/elasticsearch:9.0.0
+
+if the log prints 
+"Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started ..."
+✅ Elasticsearch started successfully and is now in a healthy state (GREEN). 🎉
+
+`Fetch password: docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic `
+![alt text](image-4.png)
+![alt text](image-5.png)
+
+##### Kibana
+    When Kibana starts, it outputs a unique generated link to the terminal. To access Kibana, open this link in a web browser.
+    Go to http://0.0.0.0:5601/?code=215541 to get started.
+
+    Use the same username & password for elastic 
+    Password for the [elastic] user successfully reset.
+    New value: cH00wb85FK-zfvZiZ1md
+    ![alt text](image-6.png)
+
+CONTAINER ID   IMAGE                                                 COMMAND                  CREATED             STATUS                        PORTS     NAMES
+00311a74acb2   docker.elastic.co/kibana/kibana:9.0.0                 "/bin/tini -- /usr/l…"   17 minutes ago      Exited (0) 37 seconds ago               kib01
+007ec7b9e216   docker.elastic.co/elasticsearch/elasticsearch:9.0.0   "/bin/tini -- /usr/l…"   About an hour ago   Exited (143) 10 seconds ago             es01
 
 ### install Apache Airflow Docker Compose 
 1. https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
