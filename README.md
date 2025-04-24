@@ -107,7 +107,7 @@ if the log prints
     Use the same username & password for elastic 
     Password for the [elastic] user successfully reset.
     New value: cH00wb85FK-zfvZiZ1md
-    ![alt text](image-6.png)
+![alt text](image-6.png)
 
 CONTAINER ID   IMAGE                                                 COMMAND                  CREATED             STATUS                        PORTS     NAMES
 00311a74acb2   docker.elastic.co/kibana/kibana:9.0.0                 "/bin/tini -- /usr/l…"   17 minutes ago      Exited (0) 37 seconds ago               kib01
