@@ -109,6 +109,10 @@ if the log prints
     New value: cH00wb85FK-zfvZiZ1md
     ![alt text](image-6.png)
 
+CONTAINER ID   IMAGE                                                 COMMAND                  CREATED             STATUS                        PORTS     NAMES
+00311a74acb2   docker.elastic.co/kibana/kibana:9.0.0                 "/bin/tini -- /usr/l…"   17 minutes ago      Exited (0) 37 seconds ago               kib01
+007ec7b9e216   docker.elastic.co/elasticsearch/elasticsearch:9.0.0   "/bin/tini -- /usr/l…"   About an hour ago   Exited (143) 10 seconds ago             es01
+
 ### install Apache Airflow Docker Compose 
 1. https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
 2. https://airflow.atwish.org/installation/docker/
