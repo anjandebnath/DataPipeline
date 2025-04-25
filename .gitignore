@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+/airflow/docker/logs/*
 
 .env/
 # C extensions

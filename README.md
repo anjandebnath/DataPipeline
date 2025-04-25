@@ -1,6 +1,8 @@
 # DataPipeline
 Under this repo, there will be an ELT pattern with AWS Redshift, Terraform to create infrastructure 
 
+To capture a screenshot and copy it directly to the clipboard on a Mac, use the following keyboard shortcuts: press Command + Control + Shift + 3 for the full screen or Command + Control + Shift + 4 for a specific area. Then, you can paste the screenshot into any application using Command + V. 
+
 ### Docker Enable through bash script
     docker --version
     Docker version 28.1.1, build 4eba377
@@ -125,3 +127,19 @@ if successfull everything http://localhost:8080/
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 ![alt text](image-3.png)
+
+
+#### Run the DAG
+1. Copy the CSV file to the worker container 
+docker cp /Users/anjandebnath/Documents/DataPipeline/data.csv docker-airflow-worker-1:/home/airflow/data.csv
+Successfully copied 93.7kB to docker-airflow-worker-1:/home/airflow/data.csv
+2. Since there is a dependency on Pandas library so run 
+docker exec -it docker-airflow-scheduler-1 bash
+pip install pandas
+docker exec -it docker-airflow-worker-1 bash
+pip install pandas
+Under airflow dags folder the python file will be mounted automatically
+3. Trigger the DAG: default@8cf9e3243463:/opt/airflow$ airflow dags trigger MyCSVDAG
+4. If success Congratulations! You have built a data pipeline with Python and ran it in
+Airflow. 
+![alt text](image-7.png)
