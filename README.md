@@ -131,15 +131,16 @@ if successfull everything http://localhost:8080/
 
 #### Run the DAG
 1. Copy the CSV file to the worker container 
-docker cp /Users/anjandebnath/Documents/DataPipeline/data.csv docker-airflow-worker-1:/home/airflow/data.csv
+`docker cp /Users/anjandebnath/Documents/DataPipeline/data.csv docker-airflow-worker-1:/home/airflow/data.csv`
 Successfully copied 93.7kB to docker-airflow-worker-1:/home/airflow/data.csv
 2. Since there is a dependency on Pandas library so run 
-docker exec -it docker-airflow-scheduler-1 bash
-pip install pandas
-docker exec -it docker-airflow-worker-1 bash
-pip install pandas
+`docker exec -it docker-airflow-scheduler-1 bash`
+`pip install pandas`
+
+`docker exec -it docker-airflow-worker-1 bash`
+`pip install pandas`
 Under airflow dags folder the python file will be mounted automatically
-3. Trigger the DAG: default@8cf9e3243463:/opt/airflow$ airflow dags trigger MyCSVDAG
+3. Trigger the DAG: `default@8cf9e3243463:/opt/airflow$ airflow dags trigger MyCSVDAG`
 4. If success Congratulations! You have built a data pipeline with Python and ran it in
 Airflow. 
 ![alt text](image-7.png)
