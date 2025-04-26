@@ -71,6 +71,20 @@ To capture a screenshot and copy it directly to the clipboard on a Mac, use the 
   -d \
   apache/nifi:latest`
 
+`  docker run -d -p 8443:8443 \
+  -v /Users/anjandebnath/Documents/DataPipeline:/nifi-input \
+  --name nifi \
+  apache/nifi:latest`
+
+  `Verify the mounted directory exists in the container:
+  (base) anjandebnath@ANJANs-Laptop ~ % docker exec -it nifi ls -ld /nifi-input
+  drwxr-xr-x 23 nifi nifi 736 Apr 26 14:58 /nifi-input`
+
+  `Use the docker exec command to open a shell session in the running NiFi container
+  docker exec -it nifi sh
+  cd /nifi-input
+  ls -l`
+
    docker logs nifi and find the 
 
    `Generated Username [USERNAME]
@@ -78,8 +92,21 @@ To capture a screenshot and copy it directly to the clipboard on a Mac, use the 
 
    https://localhost:8443/nifi/
    
-
 2. https://www.youtube.com/watch?v=2hrUseUfCbc
+
+#### Create a data pipeline
+Objective: create a data pipeline that reads in the data.CSV
+file created in Python. It will run a query for people over the age of
+40, then write out that record to a file.
+1. Reading a file with `GetFile processor`
+2. specify the input directory
+3. The `SplitRecord processor` will allow you to separate each row into a
+separate flowfile.
+4. You now have a pipeline that will read a CSV and split the rows into individual flowfiles
+5. Now you can process each row with the `QueryRecord processor.`
+6. This processor will allow you to execute a SQL command against the flowfile.
+
+
 
 ### install Elasticsearch Docker Compose 
 https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-docker-compose
